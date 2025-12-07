@@ -4,138 +4,116 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>La Música Latina y la Identidad Cultural</title>
+  <!-- React 18 UMD -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <!-- Updated Babel to v7 -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #fafafa;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
-    header {
-      background: #e63946;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      background: #f1faee;
-      padding: 10px;
-    }
-    nav a {
-      text-decoration: none;
-      color: #1d3557;
-      font-weight: bold;
-    }
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-      background: white;
-      margin-top: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    h2 {
-      color: #e63946;
-    }
-    .entrevista {
-      background: #f8f9fa;
-      padding: 15px;
-      border-left: 4px solid #e63946;
-      margin-bottom: 20px;
-      border-radius: 5px;
-    }
+    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#fafafa; color:#333; }
+    header { background:#e63946; color:white; padding:20px; text-align:center; }
+    nav { display:flex; justify-content:center; gap:20px; background:#f1faee; padding:10px; }
+    nav a { text-decoration:none; color:#1d3557; font-weight:bold; }
+    section { max-width:900px; margin:auto; padding:20px; background:white; margin-top:20px; border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.1); }
+    h2 { color:#e63946; }
+    .entrevista { background:#f8f9fa; padding:15px; border-left:4px solid #e63946; margin-bottom:20px; border-radius:5px; }
+    img { max-width:100%; border-radius:8px; margin-top:10px; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>La Música Latina y la Identidad Cultural de los Jóvenes Hispanos en EE. UU.</h1>
-  </header>
+  <div id="root"></div>
 
-  <nav>
-    <a href="#home">Inicio</a>
-    <a href="#quien">¿Quién soy?</a>
-    <a href="#proyecto">Mi Proyecto</a>
-    <a href="#metodologia">Metodología</a>
-    <a href="#entrevistas">Entrevistas</a>
-    <a href="#reflexion">Reflexión Personal</a>
-  </nav>
+  <script type="text/babel" data-type="module">
+    const entrevistas = [
+      {nombre: 'Andrea López', ciudad: 'Miami, FL', respuestas: [
+        'Escucho bachata y reguetón porque me recuerdan a mi familia en República Dominicana.',
+        'La música es literalmente lo que me mantiene conectada con mis raíces.',
+        'Romeo Santos, porque su música siempre sonó en mi casa.',
+        'Aquí en EE. UU. la bachata es más un gusto personal; allá es parte del día a día.',
+        'Es mi escape emocional y mi conexión con mi cultura.'
+      ]},
+      {nombre: 'Carlos Hernández', ciudad: 'Houston, TX', respuestas: [
+        'Escucho trap latino y reguetón por la energía que tienen.',
+        'Aunque nací aquí, la música me ayuda a sentirme parte de la comunidad latina.',
+        'Bad Bunny, porque habla de temas con los que me identifico.',
+        'La vibra de los conciertos en Puerto Rico es otra cosa, aquí es distinto.',
+        'La música es mi motivación diaria.'
+      ]},
+      {nombre: 'Sofía Martínez', ciudad: 'Los Ángeles, CA', respuestas: [
+        'La salsa porque me recuerda a mis abuelos en Colombia.',
+        'Bailar salsa es mi forma de mantener vivas nuestras tradiciones.',
+        'Grupo Niche, porque son parte de mi historia familiar.',
+        'Aquí la salsa es más de fiesta; allá es algo más cotidiano.',
+        'Para mí, la música es identidad pura.'
+      ]}
+    ];
 
-  <section id="home">
-    <h2>Página Principal</h2>
-    <p>Bienvenidos a mi proyecto cultural. Aquí exploro cómo la música latina —como el reguetón, la salsa, la bachata y el trap latino— influye en la identidad de los jóvenes hispanos que viven en los Estados Unidos. Mediante entrevistas, experiencias personales e imágenes, busco mostrar cómo la música conecta a las personas con sus raíces culturales.</p>
-  </section>
+    function App() {
+      return (
+        <React.Fragment>
+          <header><h1>La Música Latina y la Identidad Cultural de los Jóvenes Hispanos en EE. UU.</h1></header>
+          <nav>
+            <a href="#home">Inicio</a>
+            <a href="#quien">¿Quién soy?</a>
+            <a href="#proyecto">Mi Proyecto</a>
+            <a href="#metodologia">Metodología</a>
+            <a href="#entrevistas">Entrevistas</a>
+            <a href="#reflexion">Reflexión Personal</a>
+          </nav>
 
-  <section id="quien">
-    <h2>¿Quién soy?</h2>
-    <p>Mi nombre es <strong>Brandon Rivera</strong> y soy estudiante universitario. Escogí este tema porque crecí rodeado de música latina y siempre he sentido que influye en cómo me identifico como hispano en los Estados Unidos. Este proyecto me permite comparar mis experiencias con las de otros jóvenes.</p>
-  </section>
+          <section id="home">
+            <h2>Página Principal</h2>
+            <p>Bienvenidos a mi proyecto cultural. Aquí exploro cómo la música latina —como el reguetón, la salsa, la bachata y el trap latino— influye en la identidad de los jóvenes hispanos que viven en los Estados Unidos. Mediante entrevistas, experiencias personales e imágenes, busco mostrar cómo la música conecta a las personas con sus raíces culturales.</p>
+            <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772" alt="Concierto de música latina" />
+          </section>
 
-  <section id="proyecto">
-    <h2>Mi Proyecto</h2>
-    <p>El propósito de este proyecto es analizar cómo la música latina forma parte de la identidad cultural de los jóvenes hispanos en los Estados Unidos. Quiero descubrir qué géneros escuchan, por qué los escuchan y cómo estos sonidos les recuerdan su origen, su familia y su historia.</p>
-  </section>
+          <section id="quien">
+            <h2>¿Quién soy?</h2>
+            <p>Mi nombre es <strong>Brandon Rivera</strong> y soy estudiante universitario. Escogí este tema porque crecí rodeado de música latina y siempre he sentido que influye en cómo me identifico como hispano en los Estados Unidos. Este proyecto me permite comparar mis experiencias con las de otros jóvenes.</p>
+          </section>
 
-  <section id="metodologia">
-    <h2>Metodología</h2>
-    <h3>Entrevistas</h3>
-    <p>Realicé entrevistas con jóvenes hispanos. Estas son las preguntas utilizadas:</p>
-    <ul>
-      <li>¿Qué tipo de música latina escuchas con más frecuencia y por qué?</li>
-      <li>¿Crees que la música te ayuda a mantenerte conectado con tu cultura o tus raíces familiares?</li>
-      <li>¿Hay algún artista o canción que represente algo importante para ti?</li>
-      <li>¿Notas diferencias entre cómo se vive la música latina en tu país de origen y en EE. UU.?</li>
-      <li>¿Qué significa para ti la música en tu vida diaria?</li>
-    </ul>
+          <section id="proyecto">
+            <h2>Mi Proyecto</h2>
+            <p>El propósito de este proyecto es analizar cómo la música latina forma parte de la identidad cultural de los jóvenes hispanos en los Estados Unidos. Quiero descubrir qué géneros escuchan, por qué los escuchan y cómo estos sonidos les recuerdan su origen, su familia y su historia.</p>
+          </section>
 
-    <h3>Material Visual</h3>
-    <p>Incluí imágenes relacionadas con artistas latinos, conciertos y elementos culturales representativos.</p>
+          <section id="metodologia">
+            <h2>Metodología</h2>
+            <h3>Entrevistas</h3>
+            <ul>
+              <li>¿Qué tipo de música latina escuchas con más frecuencia y por qué?</li>
+              <li>¿Crees que la música te ayuda a mantenerte conectado con tu cultura o tus raíces familiares?</li>
+              <li>¿Hay algún artista o canción que represente algo importante para ti?</li>
+              <li>¿Notas diferencias entre cómo se vive la música latina en tu país de origen y en EE. UU.?</li>
+              <li>¿Qué significa para ti la música en tu vida diaria?</li>
+            </ul>
+            <h3>Material Visual</h3>
+            <p>Incluí imágenes relacionadas con artistas latinos, conciertos y elementos culturales representativos.</p>
+            <h3>Reflexiones Personales</h3>
+            <p>Conecté mis experiencias con las respuestas de los participantes para entender mejor el impacto de la música latina.</p>
+          </section>
 
-    <h3>Reflexiones Personales</h3>
-    <p>Conecté mis experiencias con las respuestas de los participantes para entender mejor el impacto de la música latina.</p>
-  </section>
+          <section id="entrevistas">
+            <h2>Entrevistas</h2>
+            {entrevistas.map((e,i) => (
+              <div className="entrevista" key={i}>
+                <h3>Entrevista {i+1} — {e.nombre} ({e.ciudad})</h3>
+                {e.respuestas.map((r,j) => <p key={j}><strong>{j+1}.</strong> {r}</p>)}
+                <p><em>Créditos: Entrevista realizada por Brandon Rivera.</em></p>
+              </div>
+            ))}
+          </section>
 
-  <section id="entrevistas">
-    <h2>Entrevistas</h2>
+          <section id="reflexion">
+            <h2>Reflexión Personal</h2>
+            <p>Como joven hispano viviendo en los Estados Unidos, la música latina siempre ha sido un recordatorio de mis raíces. Me conecta con mi familia, con mi cultura y con mis memorias. Al comparar mis experiencias con las entrevistas, veo que la música latina no es solo entretenimiento: es identidad, comunidad y memoria.</p>
+          </section>
+        </React.Fragment>
+      );
+    }
 
-    <div class="entrevista">
-      <h3>Entrevista 1 — Andrea López (Miami, FL)</h3>
-      <p><strong>1. Música favorita:</strong> "Escucho bachata y reguetón porque me recuerdan a mi familia en República Dominicana."</p>
-      <p><strong>2. Conexión cultural:</strong> "La música es literalmente lo que me mantiene conectada con mis raíces."</p>
-      <p><strong>3. Artista importante:</strong> "Romeo Santos, porque su música siempre sonó en mi casa."</p>
-      <p><strong>4. Diferencias culturales:</strong> "Aquí en EE. UU. la bachata es más un gusto personal; allá es parte del día a día."</p>
-      <p><strong>5. Significado personal:</strong> "Es mi escape emocional y mi conexión con mi cultura."</p>
-      <p><em>Créditos: Entrevista realizada por Brandon Rivera.</em></p>
-    </div>
-
-    <div class="entrevista">
-      <h3>Entrevista 2 — Carlos Hernández (Houston, TX)</h3>
-      <p><strong>1. Música favorita:</strong> "Escucho trap latino y reguetón por la energía que tienen."</p>
-      <p><strong>2. Conexión cultural:</strong> "Aunque nací aquí, la música me ayuda a sentirme parte de la comunidad latina."</p>
-      <p><strong>3. Artista importante:</strong> "Bad Bunny, porque habla de temas con los que me identifico."</p>
-      <p><strong>4. Diferencias culturales:</strong> "La vibra de los conciertos en Puerto Rico es otra cosa, aquí es distinto."</p>
-      <p><strong>5. Significado personal:</strong> "La música es mi motivación diaria."</p>
-      <p><em>Créditos: Entrevista realizada por Brandon Rivera.</em></p>
-    </div>
-
-    <div class="entrevista">
-      <h3>Entrevista 3 — Sofía Martínez (Los Ángeles, CA)</h3>
-      <p><strong>1. Música favorita:</strong> "La salsa porque me recuerda a mis abuelos en Colombia."</p>
-      <p><strong>2. Conexión cultural:</strong> "Bailar salsa es mi forma de mantener vivas nuestras tradiciones."</p>
-      <p><strong>3. Artista importante:</strong> "Grupo Niche, porque son parte de mi historia familiar."</p>
-      <p><strong>4. Diferencias culturales:</strong> "Aquí la salsa es más de fiesta; allá es algo más cotidiano."</p>
-      <p><strong>5. Significado personal:</strong> "Para mí, la música es identidad pura."</p>
-      <p><em>Créditos: Entrevista realizada por Brandon Rivera.</em></p>
-    </div>
-  </section>
-
-  <section id="reflexion">
-    <h2>Reflexión Personal</h2>
-    <p>Como joven hispano viviendo en los Estados Unidos, la música latina siempre ha sido un recordatorio de mis raíces. Me conecta con mi familia, con mi cultura y con mis memorias. Al comparar mis experiencias con las entrevistas, veo que la música latina no es solo entretenimiento: es identidad, comunidad y memoria.</p>
-  </section>
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
 </body>
 </html>
